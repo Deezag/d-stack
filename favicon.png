@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Тёмный фон со скруглением -->
+  <rect width="32" height="32" rx="8" fill="#0B0F19"/>
+  <!-- Тонкая технологичная рамка -->
+  <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.1"/>
+  <!-- Символ терминала '>' цвета Cyan -->
+  <path d="M8 9L15 16L8 23" stroke="#00F0FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Символ курсора '_' цвета Green -->
+  <path d="M18 23H24" stroke="#10B981" stroke-width="3" stroke-linecap="round"/>
+</svg>
