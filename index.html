@@ -151,9 +151,9 @@
             <div class="text-2xl font-bold font-mono text-white">990 ₽</div>
           </div>
           <!-- Вставь сюда свою прямую ссылку на товар в Lava.top -->
-          <button onclick="buyProduct(990, 'AI Co-Founder: Business OS')" class="px-6 py-2.5 rounded-lg bg-brand-cyan text-black font-semibold hover:bg-cyan-300 transition-all font-mono text-xs">
+          <a href="https://app.lava.top/products/9042f424-91c2-48c9-9148-a581d29aa2bc" target="_blank" class="px-6 py-2.5 rounded-lg bg-brand-cyan text-black font-semibold hover:bg-cyan-300 transition-all font-mono text-xs">
           Купить гайд →
-        </button>
+        </a>
         </div>
       </div>
 
@@ -199,9 +199,9 @@
               Live Demo ↗
             </a>
             <!-- Ссылка на покупку архива в Lava.top -->
-            <button onclick="buyProduct(1190, 'Шаблон MindSpace (Психолог)')" class="px-5 py-2.5 rounded-lg bg-brand-green text-black font-semibold hover:bg-emerald-400 transition-all font-mono text-xs">
+            <a href="https://app.lava.top/products/9ca3e2cf-4c86-4536-b893-dd2dd3f047db" target="_blank" class="px-5 py-2.5 rounded-lg bg-brand-green text-black font-semibold hover:bg-emerald-400 transition-all font-mono text-xs">
             Купить шаблон →
-          </button>
+            </a>
           </div>
         </div>
       </div>
@@ -246,44 +246,6 @@
         <a href="#" class="hover:text-slate-400 transition-colors">Оферта и доставка</a>
       </div>
     </div>
-  </footer>
-<script>
-  async function buyProduct(amount, title) {
-    const btn = event.currentTarget;
-    const originalText = btn.innerText;
-    btn.innerText = 'Создаем счет...';
-    btn.disabled = true;
-
-    try {
-      const response = await fetch('/api/create-invoice', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          amount: amount,
-          orderId: 'order_' + Date.now(),
-          comment: title
-        })
-      });
-
-      const data = await response.json();
-
-      // Если Lava вернула ссылку на оплату
-      if (data && (data.url || data.link || (data.data && data.data.url))) {
-        const paymentUrl = data.url || data.link || data.data.url;
-        window.location.href = paymentUrl;
-      } else {
-        alert('Ошибка создания счета. Проверьте ответ API в консоли.');
-        console.error('Lava response:', data);
-        btn.innerText = originalText;
-        btn.disabled = false;
-      }
-    } catch (err) {
-      console.error(err);
-      alert('Ошибка соединения с сервером оплаты');
-      btn.innerText = originalText;
-      btn.disabled = false;
-    }
-  }
-</script>
+  </footer> 
 </body>
 </html>
