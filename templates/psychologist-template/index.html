@@ -1,1 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анна Смирнова — Практикующий психолог</title>
+  <!-- Google Fonts: Cormorant Garamond (крупная акцентная антиква) + Plus Jakarta Sans (аккуратный гротеск) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header__container">
+      <a href="#" class="header__logo">Анна Смирнова<span>.</span></a>
+      <nav class="header__nav">
+        <a href="#about" class="nav-link">Обо мне</a>
+        <a href="#quiz" class="nav-link">Квиз-тест</a>
+        <a href="#reviews" class="nav-link">Отзывы</a>
+        <a href="#booking" class="btn btn--outline">Записаться</a>
+      </nav>
+      <button class="burger" id="burgerBtn" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" class="mobile-link">Обо мне</a>
+    <a href="#quiz" class="mobile-link">Квиз-тест</a>
+    <a href="#reviews" class="mobile-link">Отзывы</a>
+    <a href="#booking" class="btn btn--primary mobile-link">Записаться на сессию</a>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero section">
+      <div class="container hero__container">
+        <div class="hero__content">
+          <p class="hero__badge">Бережная психотерапия онлайн & офлайн</p>
+          <h1 class="hero__title">Безопасное пространство для ваших <em>истинных чувств</em></h1>
+          <p class="hero__description">Помогаю преодолеть тревогу, синдром самозванца, выйти из выгорания и выстроить здоровые отношения с собой и миром.</p>
+          <div class="hero__actions">
+            <a href="#booking" class="btn btn--primary">Подобрать время</a>
+            <a href="#quiz" class="btn btn--secondary">Пройти тест (2 мин)</a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <div class="hero__image-wrapper">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=80" alt="Психолог Анна Смирнова" class="hero__img">
+            <div class="hero__tag">
+              <span class="tag-dot"></span> 8+ лет практики / Член АКПП
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO INTRO -->
+    <section class="video-intro section" id="about">
+      <div class="container">
+        <div class="section-head text-center">
+          <p class="section-subtitle">Знакомство</p>
+          <h2 class="section-title">Видео-визитка: почему важен личный контакт</h2>
+          <p class="section-desc">Почувствуйте интонацию, тембр и атмосферу до первой полноценной встречи.</p>
+        </div>
+        <div class="video-card">
+          <div class="video-card__player-box">
+            <!-- Пример со стандартным тегом video. Замените poster и src при размещении -->
+            <video class="video-card__video" id="introVideo" poster="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80">
+              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+              Ваш браузер не поддерживает встроенное видео.
+            </video>
+            <button class="video-card__play-btn" id="playBtn" aria-label="Смотреть видео">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="video-card__meta">
+            <div class="meta-item">
+              <strong>1:45 мин</strong>
+              <span>Коротко о методе и ценностях</span>
+            </div>
+            <div class="meta-item">
+              <strong>КПТ & Гештальт</strong>
+              <span>Доказательные подходы</span>
+            </div>
+            <div class="meta-item">
+              <strong>100%</strong>
+              <span>Конфиденциальность встреч</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="quiz section" id="quiz">
+      <div class="container container--narrow">
+        <div class="section-head text-center">
+          <p class="section-subtitle">Экспресс-диагностика</p>
+          <h2 class="section-title">С чего начать совместную работу?</h2>
+          <p class="section-desc">Ответьте на 3 вопроса, чтобы сформировать запрос и сразу отправить его мне в чат.</p>
+        </div>
+
+        <div class="quiz-box" id="quizBox">
+          <div class="quiz-box__progress">
+            <div class="quiz-box__progress-bar" id="quizProgress"></div>
+          </div>
+
+          <!-- Question 1 -->
+          <div class="quiz-step active" data-step="1">
+            <span class="quiz-step__counter">Вопрос 1 из 3</span>
+            <h3 class="quiz-step__question">Какое состояние сейчас беспокоит вас больше всего?</h3>
+            <div class="quiz-step__options">
+              <button class="quiz-option" data-answer="Постоянная фоновая тревога и перегрузка">Постоянная тревожность и страх будущего</button>
+              <button class="quiz-option" data-answer="Эмоциональное и физическое выгорание">Апатия, прокрастинация и выгорание</button>
+              <button class="quiz-option" data-answer="Сложности в отношениях / расставание">Кризис в отношениях или болезненный разрыв</button>
+              <button class="quiz-option" data-answer="Неуверенность в себе и самозванец">Неуверенность в себе и страх ошибок</button>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="quiz-step" data-step="2">
+            <span class="quiz-step__counter">Вопрос 2 из 3</span>
+            <h3 class="quiz-step__question">Был ли у вас ранее опыт личной терапии?</h3>
+            <div class="quiz-step__options">
+              <button class="quiz-option" data-answer="Первый раз иду к психологу">Нет, это будет мой первый опыт</button>
+              <button class="quiz-option" data-answer="Был опыт, хочу продолжить с новым специалистом">Да, работал(а) с терапевтом ранее</button>
+              <button class="quiz-option" data-answer="Пробовал(а), но контакт не сложился">Был неудачный опыт, ищу бережный подход</button>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="quiz-step" data-step="3">
+            <span class="quiz-step__counter">Вопрос 3 из 3</span>
+            <h3 class="quiz-step__question">Какой формат консультаций для вас предпочтителен?</h3>
+            <div class="quiz-step__options">
+              <button class="quiz-option" data-answer="Онлайн (Zoom/Google Meet)">Онлайн (Zoom / Meet из любой точки)</button>
+              <button class="quiz-option" data-answer="Очно в кабинете">Очно в уютном кабинете</button>
+              <button class="quiz-option" data-answer="Пока не определился(ась)">Пока не знаю, хочу обсудить на созвоне</button>
+            </div>
+          </div>
+
+          <!-- Quiz Result -->
+          <div class="quiz-result" id="quizResult">
+            <div class="quiz-result__icon">✓</div>
+            <h3 class="quiz-result__title">Ваш запрос сформирован</h3>
+            <p class="quiz-result__desc">Нажмите кнопку ниже, чтобы перейти в Telegram. Текст с ответами уже подготовлен и сразу вставится в диалоговое окно.</p>
+            <div class="quiz-result__summary" id="quizSummary"></div>
+            <a href="#" class="btn btn--primary btn--tg" id="quizTgButton" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.77-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg>
+              Отправить ответы в Telegram
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS (MESSENGER CHATS) -->
+    <section class="reviews section" id="reviews">
+      <div class="container">
+        <div class="section-head text-center">
+          <p class="section-subtitle">Результаты клиентов</p>
+          <h2 class="section-title">Живые фрагменты переписок</h2>
+          <p class="section-desc">Публикуется с согласия клиентов. Имена и аватары изменены из соображений приватности.</p>
+        </div>
+
+        <div class="reviews__grid">
+          <!-- Chat Card 1 -->
+          <article class="chat-card">
+            <div class="chat-card__header">
+              <div class="chat-card__avatar">Д</div>
+              <div class="chat-card__user">
+                <span class="chat-card__name">Дарья, 29 лет</span>
+                <span class="chat-card__status">Запрос: Тревога и синдром самозванца</span>
+              </div>
+            </div>
+            <div class="chat-card__body">
+              <div class="chat-msg chat-msg--in">
+                <p>Анна, привет! Прошла неделя после нашей практики с внутренним критиком. Я наконец-то презентовала проект на совете директоров и впервые не пила успокоительное! Руки не дрожали.</p>
+                <span class="chat-msg__time">14:22</span>
+              </div>
+              <div class="chat-msg chat-msg--out">
+                <p>Дарья, какая огромная победа! Вы дали себе право звучать уверенно. Горжусь вами! 🤍</p>
+                <span class="chat-msg__time">14:30 ✓✓</span>
+              </div>
+              <div class="chat-msg chat-msg--in">
+                <p>Спасибо вам за эту внутреннюю опору. До встречи в пятницу!</p>
+                <span class="chat-msg__time">14:32</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Chat Card 2 -->
+          <article class="chat-card">
+            <div class="chat-card__header">
+              <div class="chat-card__avatar">М</div>
+              <div class="chat-card__user">
+                <span class="chat-card__name">Максим, 35 лет</span>
+                <span class="chat-card__status">Запрос: Выгорание в IT</span>
+              </div>
+            </div>
+            <div class="chat-card__body">
+              <div class="chat-msg chat-msg--in">
+                <p>Добрый день. Поймал себя на том, что за эти выходные ни разу не открыл рабочий Slack. Кажется, установленные границы наконец начали работать без чувства вины.</p>
+                <span class="chat-msg__time">10:15</span>
+              </div>
+              <div class="chat-msg chat-msg--out">
+                <p>Это важнейший маркер. Помните: отдых — не награда за труд, а базовое условие жизни. Как ощущения в теле?</p>
+                <span class="chat-msg__time">10:18 ✓✓</span>
+              </div>
+              <div class="chat-msg chat-msg--in">
+                <p>С плеч словно плита упала. Стало легче дышать.</p>
+                <span class="chat-msg__time">10:20</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Chat Card 3 -->
+          <article class="chat-card">
+            <div class="chat-card__header">
+              <div class="chat-card__avatar">Е</div>
+              <div class="chat-card__user">
+                <span class="chat-card__name">Елена, 31 год</span>
+                <span class="chat-card__status">Запрос: Личные границы</span>
+              </div>
+            </div>
+            <div class="chat-card__body">
+              <div class="chat-msg chat-msg--in">
+                <p>Анна, добрый вечер. Разговор с родителями прошел спокойно! Я сказала «нет» семейной поездке без истерик и самобичевания.</p>
+                <span class="chat-msg__time">19:40</span>
+              </div>
+              <div class="chat-msg chat-msg--out">
+                <p>Браво! Вы выбрали себя, не разрушая при этом контакт. Это и есть зрелая позиция.</p>
+                <span class="chat-msg__time">19:48 ✓✓</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING & TELEGRAM CTA -->
+    <section class="booking section" id="booking">
+      <div class="container">
+        <div class="booking__card">
+          <div class="booking__content">
+            <span class="section-subtitle">Запись на консультацию</span>
+            <h2 class="booking__title">Сделайте первый шаг навстречу спокойствию</h2>
+            <p class="booking__text">Выберите удобную дату в календаре для предварительной 20-минутной ознакомительной сессии или напишите мне напрямую в Telegram с готовым шаблоном.</p>
+            
+            <div class="booking__direct-actions">
+              <a href="https://t.me/your_username?text=Здравствуйте,%20Анна!%20Хочу%20записаться%20к%20вам%20на%20первичную%20консультацию." target="_blank" rel="noopener" class="btn btn--primary btn--tg">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.77-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg>
+                Написать в Telegram (готовый текст)
+              </a>
+              <span class="booking__note">Отвечаю лично в течение 2-3 часов</span>
+            </div>
+          </div>
+
+          <!-- Interactive Calendar UI -->
+          <div class="calendar-widget" id="calendarWidget">
+            <div class="calendar-widget__header">
+              <span class="calendar-widget__month" id="calendarMonth">Октябрь 2026</span>
+              <div class="calendar-widget__nav">
+                <button type="button" id="prevMonth" aria-label="Предыдущий месяц">‹</button>
+                <button type="button" id="nextMonth" aria-label="Следующий месяц">›</button>
+              </div>
+            </div>
+
+            <div class="calendar-widget__weekdays">
+              <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
+            </div>
+
+            <div class="calendar-widget__days" id="calendarDays">
+              <!-- Сгенерировано через JS -->
+            </div>
+
+            <div class="calendar-widget__slots" id="timeSlotsSection">
+              <span class="slots-title">Свободное время на выбранный день:</span>
+              <div class="slots-grid" id="slotsGrid">
+                <button class="slot-pill" data-time="11:00">11:00</button>
+                <button class="slot-pill" data-time="14:30">14:30</button>
+                <button class="slot-pill" data-time="17:00">17:00</button>
+                <button class="slot-pill" data-time="19:00">19:00</button>
+              </div>
+            </div>
+
+            <button class="btn btn--primary btn--full" id="confirmBookingBtn" disabled>
+              Подтвердить запись на <span id="selectedDateTimeText">—</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__container">
+      <p class="footer__copy">© 2026 Анна Смирнова. Частная психологическая практика.</p>
+      <div class="footer__links">
+        <a href="#">Этический кодекс</a>
+        <a href="#">Политика конфиденциальности</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
